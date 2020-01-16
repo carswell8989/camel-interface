@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:camel="http://camel.apache.org/schema/spring"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+    		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+            http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
+
+
+    <!-- =========================== -->
+    <!-- Camel Context -->
+    <!-- =========================== -->
+    <bean id="testProcessor" class="kr.co.camel.api.test.TestProcessor"/>
+    <bean id="testRouteBuilder" class="kr.co.camel.api.test.route.TestRouteBuilder"/>
+  
+  	<bean id="jetty" class="org.apache.camel.component.jetty9.JettyHttpComponent9"/>
+	
+    <camel:camelContext id="ON_TEST_CTX">
+        <camel:routeBuilder ref="testRouteBuilder"/>
+    </camel:camelContext>
+
+            
+            
+            
+            
+</beans>
